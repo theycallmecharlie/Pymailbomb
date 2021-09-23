@@ -53,9 +53,7 @@ def menu():
         if smtpserver == '': smtpserver = 'smtp.gmail.com'
         if smtpport == '': smtpport = '587'
         connection = smtplib.SMTP(smtpserver, smtpport)
-        connection.ehlo()
-        connection.starttls()
-        connection.login(mail,passw)
+        connection.ehlo() , connection.starttls() , connection.login(mail,passw)
         for i in range(1,int(quantity)+1):
             subject = subject
             body += f'\n {name}.'
