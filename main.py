@@ -37,7 +37,7 @@ def main():
     parser.add_argument('-smtp', '--smtpserver', action='store_true', default = 'smtp.gmail.com')
     parser.add_argument('-port', '--smtport', action='store_true', default = 587)
     args = parser.parse_args()
-
+    menu()
 def menu():
     try:
         name = input("Anon name: ")
