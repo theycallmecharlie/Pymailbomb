@@ -1,5 +1,5 @@
 # Pymailbomb
-Little mail spam tool 4 educational purpose
+I'm not responsible for the misuse of this tool. This is 4 educational purpose.
 
 1st of all generate a app password > [mail](https://myaccount.google.com/apppasswords)
 
