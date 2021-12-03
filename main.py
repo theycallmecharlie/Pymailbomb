@@ -24,22 +24,21 @@ ______                          _  _  _                        _
         __/ |                                                        
        |___/  {Color.DANGER} 4 EDUCATIONAL PURPOSE {Color.WHITE}                                                        
     {Color.WHITE}'''
-    return banner
+    return banner   
 
 
-# def main():
-#     parser = argparse.ArgumentParser(description="Pymail bombing")
-#     parser.add_argument('-n', '--name', help='A name to sent mail as', action='store_true')
-#     parser.add_argument('-m', '--mail', help='Attacker mail', action='store_true')
-#     parser.add_argument('-p', '--passw', help='Password app set', action='store_true')
-#     parser.add_argument('-l', '--list', help='Mailist', action='store_true')
-#     parser.add_argument('-t', '--target', help='Target mail', action='store_true')
-#     parser.add_argument('-q', '--quantity', help='Quantity of emails that\'ll be sent to the target', action='store_true')
-#     parser.add_argument('-body', '--body', help='Message', action='store_true')
-#     parser.add_argument('-smtp', '--smtpserver', action='store_true', default = 'smtp.gmail.com')
-#     parser.add_argument('-port', '--smtport', action='store_true', default = 587)
-#     args = parser.parse_args()
-#     menu()
+def main():
+    parser = argparse.ArgumentParser(description="Pymail bombing")
+    parser.add_argument('-n', '--name', help='A name to sent mail as')
+    parser.add_argument('-m', '--mail', help='Attacker mail')
+    parser.add_argument('-p', '--passw', help='Password app set')
+    parser.add_argument('-l', '--list', help='Mailist')
+    parser.add_argument('-t', '--target', help='Target mail')
+    parser.add_argument('-q', '--quantity', help='Quantity of emails that\'ll be sent to the target')
+    parser.add_argument('-body', '--body', help='Message')
+    parser.add_argument('-smtp', '--smtpserver', default = 'smtp.gmail.com')
+    parser.add_argument('-port', '--smtport', default = 587)
+    args = parser.parse_args()
 def main():
     try:
         name, mail, passw = input("Anon name: "), input("Attacker mail: "), input("Attacker passw: ")
